@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>press Key and Code in js</title>
+
+    <style>
+        body
+        {
+            background-color: black;
+        }
+        .data
+        {
+            margin: 100px;
+            text-align: center;
+            background-color:#ffffff;          
+        }
+        table,th,td
+         {
+           border:2px solid black;    
+           border-collapse: collapse;    
+        }
+
+    table
+    {
+        width: 100%;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="data">
+        <h3>Press any key we will show you its code</h3>
+        
+    </div>
+    
+</body>
+
+
+
+<script>
+
+    const data=document.querySelector('.data')
+
+    window.addEventListener('keydown',function(e){
+        console.log(e.key)
+        console.log(e.keyCode)
+        console.log(e.code)
+       
+
+    data.innerHTML=`
+    
+    <div class="tablediv">
+
+<table>
+      <thead>
+        <th>Press key</th>
+        <th>keycode</th>
+        <th>code</th>
+      </thead>
+
+      <tbody>
+      
+        <tr>
+            <td>${e.key===" " ? "Space" :e.key}</td>
+            <td>${e.keyCode}</td>
+            <td>${e.code}</td>
+        </tr>
+       
+      </tbody>
+</table>
+    </div>
+    `  
+    })
+</script>
+</html>

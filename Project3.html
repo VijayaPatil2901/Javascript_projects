@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Time Screen</title>
+
+    <style>
+        body{
+            background-color: black;
+            color: #ffffff;
+            text-align: center;
+        }
+        .mytime{
+            margin:100px;
+        }
+        #clock
+        {
+           padding: 20px;
+            background-color:#ffffff ;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="mytime">
+        <h1>Digital Clock</h1>
+        <div id="clock"></div>
+    </div>  
+</body>
+
+<script>
+    
+   function myDigitalClock()
+   {
+    const clock=document.getElementById('clock')
+
+    const Time=new Date()
+            // console.log( Time.toLocaleTimeString())
+    let myTime=Time.toLocaleTimeString();
+
+    clock.innerHTML=myTime
+   }
+
+   setInterval(myDigitalClock,1000)
+
+  
+</script>
+</html>

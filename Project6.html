@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Color Js Project</title>
+     <style>
+
+.container
+    {
+        text-align: center;
+        margin-top: 100px;
+    }
+    button{
+            padding: 10px;
+            margin: 5px;
+            border-radius: 10px;
+
+        }
+        #start{
+            background-color: green;
+            color: #ffff;
+        }
+        #stop{
+            background-color: red;
+            color: #212121;
+        }
+       
+     </style>
+</head>
+
+<body>
+ <div class="container">
+
+    <div class="info">
+        <h3>Change your<span> background color</span> continuosly</h3>
+        <h4>Let's go.......</h4>
+    </div>
+
+    <div class="button">
+        <button id="start" >Start</button>
+        <button id="stop">Stop</button>
+    </div>
+</div>
+</body>
+
+<script>
+        const myBody=document.querySelector('body')
+
+                    // ek random value pahije color sathi hex madhe
+
+         const hex_val="0123456789abcdef"
+         function ChangeColor(){                       
+                                    let randomColor="#"
+
+                                    for(let i=0;i<6;i++)
+                                            {
+                                                randomColor+=hex_val[Math.floor(Math.random()*16)]
+                                            }
+                                    return randomColor         
+                                }
+                                    //console.log(randomColor)
+
+                                    //   let random_val=Math.floor(Math.random()*16)
+                                    //   console.log(random_val)
+
+                    let ChangeMe; 
+
+                    document.getElementById('start').addEventListener('click',function(e){
+                            //   console.log(ChangeColor())
+                            if(!ChangeMe)
+                            {
+                                ChangeMe=setInterval(function(){myBody.style.backgroundColor=ChangeColor()},500);
+                            }
+                    })
+
+
+                    document.getElementById('stop').addEventListener('click',function(e){                      
+                        clearInterval(ChangeMe)       
+                        ChangeMe=null;                       
+                    })
+
+</script>
+</html>

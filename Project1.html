@@ -1,0 +1,80 @@
+
+<!-- // code sandbox websites platform to  create 
+// stacksplit website platform -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project1</title>
+
+    <style>
+        .buttons
+        {
+           border: 2px solid black;
+           height: 100px;
+           width: 100px;
+           margin:10px
+        }
+        
+        #grey{ background-color: grey;}
+        #white{ background-color: white;}
+        #black{ background-color: black;}
+        #yellow{ background-color: yellow;}
+        
+
+        .main{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Scheme Switcher</h1>
+    <div class="main">       
+        <span class="buttons" id="grey"></span>
+        <span class="buttons" id="white"></span>
+        <span class="buttons" id="black"></span>
+        <span class="buttons" id="yellow"></span>
+    </div>
+</body>
+
+
+
+<script>
+    const body=document.querySelector("body")
+    const buttons=document.querySelectorAll(".buttons")
+
+    buttons.forEach( (button)=>{
+
+        button.addEventListener('click',function(event){
+            console.log(event.target);
+
+            switch (event.target.id) {
+                case "grey":body.style.backgroundColor=event.target.id
+                            break;
+                     
+                case "white":body.style.backgroundColor=event.target.id
+                            break;    
+
+               case "black":body.style.backgroundColor=event.target.id
+                           button.style.border="2px solid white"
+                            break;   
+
+              case "yellow":body.style.backgroundColor=event.target.id
+                            break;                                                
+                default:console.log("Error")
+                         break;
+            }
+        })
+    })
+
+    console.log(buttons);
+</script>
+</html>

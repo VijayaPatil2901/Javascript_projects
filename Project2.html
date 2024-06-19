@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project2:Body Mass Index Calucalator</title>
+
+    <style>
+        body{
+            text-align: center;
+            line-height: 50px;
+        }
+        button
+        {
+            margin: 30px;
+            padding: 5px;
+            background-color: green;
+            color: #ffff;
+            border-radius: 10px;
+        }
+        button:active
+        {
+            margin: 30px;
+            padding: 5px;
+            background-color: red;
+            color: #ffff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BMI calculator</h1>
+
+    <div class="main">
+        <form>
+                <label for="height">Height in cm :</label>
+                <input type="text" id="height">
+                 <br>
+                <label for="weight">Weight in kg :</label>
+                <input type="text" id="weight">
+
+                <br>
+                <button>Calculate</button>
+
+                <div id="Result"></div>
+        </form>
+        
+    </div>
+</body>
+
+<script>
+
+    const form=document.querySelector("form")
+
+  //  const height =parseInt(querySelector("#Height").value)   // it will give empty value because 
+
+    form.addEventListener('submit',function(e){
+
+        e.preventDefault()       // prevent to pass value through url
+
+        const height =parseInt(document.querySelector("#height").value)
+        const weight =parseInt(document.querySelector("#weight").value)
+
+        const result= document.querySelector("#Result")
+
+        if(height==='' || height<0 || isNaN(height))
+        {
+            result.innerHTML=`Please enter valid Height ${height}`
+        }
+        else if(weight==='' || weight<0 || isNaN(weight))
+        {
+            result.innerHTML=`Please enter valid weight ${weight}`
+        }
+        else{
+
+            const bmi=(weight/(height*height/10000)).toFixed(2)
+            
+        //     result.innerHTML=bmi
+
+            if(bmi<15.6) // underweight
+            {
+                result.innerHTML=`<span>BMI is ${bmi} <br> (Under-Weight)</span>`
+            }else if(bmi>15.6 && bmi<24.9)  //normal weight
+            {
+                result.innerHTML=`<span>BMI is ${bmi} <br> (Normal-Weight)</span>`
+            }
+            else{ //overweight
+                result.innerHTML=`<span>BMI is ${bmi} <br> (Over-Weight)</span>`
+                result.style.color="green"
+            }
+
+        }
+      
+    })
+    
+    console.log("form");
+
+</script>
+</html>
